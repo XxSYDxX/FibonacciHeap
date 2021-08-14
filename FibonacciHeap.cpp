@@ -100,7 +100,6 @@ FibonacciHeap::node * FibonacciHeap::extract_min() {
 
     if (nxtchd) {
         do {
-            nxtchd->parent = nullptr;
             node * temp = new node;
             *temp = *nxtchd;
             min->insertLeft(nxtchd);
@@ -117,6 +116,7 @@ FibonacciHeap::node * FibonacciHeap::extract_min() {
     return nh;
 }
 
+// Flattens the heap, makes sure no two nodes with the same rank exist
 void FibonacciHeap::consolidate(int rank) {
     node * ranks[rank+1]{};
     
